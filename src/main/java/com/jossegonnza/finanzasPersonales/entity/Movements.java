@@ -2,23 +2,30 @@ package com.jossegonnza.finanzasPersonales.entity;
 
 import jakarta.persistence.*;
 
-@MappedSuperclass
-public class Movements {
+import java.io.Serializable;
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "movements")
+public class Movements implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private double quantity;
+    private LocalDate date;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-    public Movements(Long id, String name, double quantity) {
+    public Movements(Long id, String name, double quantity, LocalDate date, Category category) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
+        this.date = date;
+        this.category = category;
     }
 
     public Long getId() {
@@ -53,4 +60,11 @@ public class Movements {
         this.category = category;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 }
