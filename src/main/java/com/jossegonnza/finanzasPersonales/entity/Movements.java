@@ -7,14 +7,14 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "movements")
-public class Movements implements Serializable {
+public abstract class Movements implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private double quantity;
-    private LocalDate date;
+    private final LocalDate date;
 
     public Movements(Long id, String name, double quantity, LocalDate date) {
         this.id = id;
