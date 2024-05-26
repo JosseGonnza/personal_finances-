@@ -1,12 +1,15 @@
 package com.jossegonnza.finanzasPersonales.entity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "categories")
-public class Category {
+public class Category implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +28,18 @@ public class Category {
         this.name = name;
         this.incomeList = incomeList;
         this.expenditureList = expenditureList;
+    }
+
+    public Category(String name) {
+        this.name = name;
+    }
+
+    public Category() {
+    }
+
+    @JsonCreator
+    public static Category fromString(@JsonProperty("name") String name) {
+        return new Category(name);
     }
 
     public Long getId() {
@@ -57,5 +72,15 @@ public class Category {
 
     public void setExpenditureList(List<Expenditure> expenditureList) {
         this.expenditureList = expenditureList;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", incomeList=" + incomeList +
+                ", expenditureList=" + expenditureList +
+                '}';
     }
 }

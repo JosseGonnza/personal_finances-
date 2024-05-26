@@ -23,15 +23,15 @@ public class CategoryServiceImpl implements CategoryService{
         return categoryRepository.findById(id);
     }
 
-    public void createCategory(Category category) {
-        categoryRepository.save(category);
+    public Category createCategory(Category category) {
+        return categoryRepository.save(category);
     }
 
     @Override
-    public void updateCategory(Long id, Category category) {
+    public Category updateCategory(Long id, Category category) {
         Category category1 = findCategoryById(id).orElseThrow(() -> new InvalidParameterException("Invalid Id"));
         category1.setId(category.getId());
-        categoryRepository.save(category1);
+        return categoryRepository.save(category1);
     }
 
     public void deleteCategoryById(Long id) {

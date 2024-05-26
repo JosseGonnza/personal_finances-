@@ -3,7 +3,6 @@ package com.jossegonnza.finanzasPersonales.entity;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -16,13 +15,11 @@ public abstract class Movements implements Serializable {
 
     private String name;
     private double quantity;
-    private LocalDate date;
 
-    public Movements(Long id, String name, double quantity, LocalDate date) {
+    public Movements(Long id, String name, double quantity) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
-        this.date = date;
     }
 
     public Movements() {
@@ -52,11 +49,4 @@ public abstract class Movements implements Serializable {
         this.quantity = quantity;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
 }

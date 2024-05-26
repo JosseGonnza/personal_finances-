@@ -2,14 +2,13 @@ package com.jossegonnza.finanzasPersonales.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 
 @Entity
 @DiscriminatorValue("GASTO")
 public class Expenditure extends Movements{
 
-    public Expenditure(Long id, String name, double quantity, LocalDate date, Category category) {
-        super(id, name, quantity, date);
+    public Expenditure(Long id, String name, double quantity, Category category) {
+        super(id, name, quantity);
         this.category = category;
     }
 

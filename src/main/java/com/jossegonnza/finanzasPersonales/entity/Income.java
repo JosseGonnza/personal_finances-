@@ -2,7 +2,6 @@ package com.jossegonnza.finanzasPersonales.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 
 @Entity
 @DiscriminatorValue("INGRESO")
@@ -12,8 +11,8 @@ public class Income extends Movements{
     @JoinColumn(name = "categoryId")
     private Category category;
 
-    public Income(Long id, String name, double quantity, LocalDate date, Category category) {
-        super(id, name, quantity, date);
+    public Income(Long id, String name, double quantity, Category category) {
+        super(id, name, quantity);
         this.category = category;
     }
 

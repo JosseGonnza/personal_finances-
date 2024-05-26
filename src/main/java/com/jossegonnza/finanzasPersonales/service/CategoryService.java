@@ -9,8 +9,8 @@ public interface CategoryService {
 
     List<Category> findAllCategories();
     Optional<Category> findCategoryById(Long id);
-    void createCategory(Category category);
-    void updateCategory(Long id, Category category);
+    Category createCategory(Category category);
+    Category updateCategory(Long id, Category category);
     void deleteCategoryById(Long id);
 
 }
