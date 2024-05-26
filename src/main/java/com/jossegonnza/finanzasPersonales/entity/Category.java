@@ -37,11 +37,6 @@ public class Category implements Serializable {
     public Category() {
     }
 
-    @JsonCreator
-    public static Category fromString(@JsonProperty("name") String name) {
-        return new Category(name);
-    }
-
     public Long getId() {
         return id;
     }

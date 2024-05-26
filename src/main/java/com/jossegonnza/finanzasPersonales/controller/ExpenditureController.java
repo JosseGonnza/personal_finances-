@@ -36,4 +36,9 @@ public class ExpenditureController {
         return expenditureService.createExpenditure(expenditure);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void deleteExpenditure(@PathVariable Long id) {
+        expenditureService.deleteExpenditure(id);
+    }
+
 }

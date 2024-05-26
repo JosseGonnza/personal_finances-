@@ -3,13 +3,14 @@ package com.jossegonnza.finanzasPersonales.service;
 import com.jossegonnza.finanzasPersonales.entity.Expenditure;
 import com.jossegonnza.finanzasPersonales.repository.ExpenditureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ExpenditureServiceImpl implements ExpenditureService{
+public class ExpenditureServiceImpl implements ExpenditureService {
 
     @Autowired
     private ExpenditureRepository expenditureRepository;
@@ -33,4 +34,10 @@ public class ExpenditureServiceImpl implements ExpenditureService{
     public Expenditure createExpenditure(Expenditure expenditure) {
         return expenditureRepository.save(expenditure);
     }
+
+    @Override
+    public void deleteExpenditure(Long id) {
+        expenditureRepository.deleteById(id);
+    }
+
 }
