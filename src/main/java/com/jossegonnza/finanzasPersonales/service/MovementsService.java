@@ -9,7 +9,6 @@ public interface MovementsService {
 
     List<Movements> findAllMovements();
     Optional<Movements> findMovementById(Long id);
-    void createMovement(Movements movements);
     void updateMovement(Long id, Movements movements);
     void deleteMovement(Long id);
 

@@ -1,5 +1,7 @@
 package com.jossegonnza.finanzasPersonales.service;
 
+import com.jossegonnza.finanzasPersonales.entity.Expenditure;
+import com.jossegonnza.finanzasPersonales.entity.Income;
 import com.jossegonnza.finanzasPersonales.entity.Movements;
 import com.jossegonnza.finanzasPersonales.repository.MovementsRepository;
 import org.springframework.stereotype.Service;
@@ -24,14 +26,10 @@ public class MovementsServiceImpl implements MovementsService{
     }
 
     @Override
-    public void createMovement(Movements movements) {
-        movementsRepository.save(movements);
-    }
-
-    @Override
     public void updateMovement(Long id, Movements movements) {
         Movements movements1 = findMovementById(id).orElseThrow(() -> new InvalidParameterException("Invalid Id"));
         movements1.setName(movements.getName());
+        movements1.setQuantity(movements.getQuantity());
         movementsRepository.save(movements1);
     }
 

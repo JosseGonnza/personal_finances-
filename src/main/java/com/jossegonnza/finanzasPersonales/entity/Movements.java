@@ -6,21 +6,26 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "movements")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type")
 public abstract class Movements implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private double quantity;
-    private final LocalDate date;
+    private LocalDate date;
 
     public Movements(Long id, String name, double quantity, LocalDate date) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.date = date;
+    }
+
+    public Movements() {
     }
 
     public Long getId() {
@@ -51,4 +56,7 @@ public abstract class Movements implements Serializable {
         return date;
     }
 
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 }

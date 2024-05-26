@@ -28,4 +28,9 @@ public class IncomeServiceImpl implements IncomeService{
     public Optional<Income> findIncomeById(Long id) {
         return incomeRepository.findById(id);
     }
+
+    @Override
+    public void createIncome(Income income) {
+        incomeRepository.save(income);
+    }
 }

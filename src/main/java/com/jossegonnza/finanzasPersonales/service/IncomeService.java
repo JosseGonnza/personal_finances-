@@ -10,5 +10,6 @@ public interface IncomeService {
     List<Income> findAllIncomes();
     List<Income> findAllIncomesByCategory(Long categoryId);
     Optional<Income> findIncomeById(Long id);
+    void createIncome(Income income);
 
 }

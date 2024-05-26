@@ -28,4 +28,9 @@ public class ExpenditureServiceImpl implements ExpenditureService{
     public Optional<Expenditure> findExpenditureById(Long id) {
         return expenditureRepository.findById(id);
     }
+
+    @Override
+    public void createExpenditure(Expenditure expenditure) {
+        expenditureRepository.save(expenditure);
+    }
 }

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@DiscriminatorValue("INGRESO")
 public class Income extends Movements{
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -14,6 +15,9 @@ public class Income extends Movements{
     public Income(Long id, String name, double quantity, LocalDate date, Category category) {
         super(id, name, quantity, date);
         this.category = category;
+    }
+
+    public Income() {
     }
 
     public Category getCategory() {

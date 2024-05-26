@@ -10,5 +10,6 @@ public interface ExpenditureService {
     List<Expenditure> findAllExpenditures();
     List<Expenditure> findAllExpendituresByCategory(Long categoryId);
     Optional<Expenditure> findExpenditureById(Long id);
+    void createExpenditure(Expenditure expenditure);
 
 }
