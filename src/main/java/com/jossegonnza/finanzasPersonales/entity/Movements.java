@@ -16,8 +16,8 @@ public class Movements implements Serializable {
     private double quantity;
     private LocalDate date;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categoryId")
     private Category category;
 
     public Movements(Long id, String name, double quantity, LocalDate date, Category category) {

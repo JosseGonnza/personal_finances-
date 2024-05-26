@@ -14,7 +14,7 @@ public class Category {
 
     private String name;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Movements> movementsList;
 
     public Category(Long id, String name, List<Movements> movementsList) {
