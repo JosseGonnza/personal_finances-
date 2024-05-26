@@ -20,12 +20,12 @@ public class MovementsController {
         return movementsService.findAllMovements();
     }
 
-    @PutMapping("/update")
-    public void updateMovement(@RequestBody Long id, Movements movements) {
-        movementsService.updateMovement(id, movements);
+    @PutMapping("/update/{id}")
+    public Movements updateMovement(@PathVariable Long id, @RequestBody Movements movements) {
+        return movementsService.updateMovement(id, movements);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     public void deleteMovement(@PathVariable Long id) {
         movementsService.deleteMovement(id);
     }

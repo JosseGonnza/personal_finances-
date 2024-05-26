@@ -35,8 +35,8 @@ public class ExpenditureController {
     }
 
     @PostMapping("/")
-    public void createNewExpenditure(Expenditure expenditure) {
-        expenditureService.createExpenditure(expenditure);
+    public Expenditure createNewExpenditure(Expenditure expenditure) {
+        return expenditureService.createExpenditure(expenditure);
     }
 
 }

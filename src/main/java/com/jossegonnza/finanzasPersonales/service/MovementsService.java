@@ -9,7 +9,7 @@ public interface MovementsService {
 
     List<Movements> findAllMovements();
     Optional<Movements> findMovementById(Long id);
-    void updateMovement(Long id, Movements movements);
+    Movements updateMovement(Long id, Movements movements);
     void deleteMovement(Long id);
 
 }
