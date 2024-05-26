@@ -16,16 +16,11 @@ public class Movements implements Serializable {
     private double quantity;
     private LocalDate date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoryId")
-    private Category category;
-
-    public Movements(Long id, String name, double quantity, LocalDate date, Category category) {
+    public Movements(Long id, String name, double quantity, LocalDate date) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.date = date;
-        this.category = category;
     }
 
     public Long getId() {
@@ -52,19 +47,8 @@ public class Movements implements Serializable {
         this.quantity = quantity;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
     public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
 }

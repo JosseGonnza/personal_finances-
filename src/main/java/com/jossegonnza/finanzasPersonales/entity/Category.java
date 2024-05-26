@@ -15,12 +15,16 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private List<Movements> movementsList;
+    private List<Income> incomeList;
 
-    public Category(Long id, String name, List<Movements> movementsList) {
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<Expenditure> expenditureList;
+
+    public Category(Long id, String name, List<Income> incomeList, List<Expenditure> expenditureList) {
         this.id = id;
         this.name = name;
-        this.movementsList = movementsList;
+        this.incomeList = incomeList;
+        this.expenditureList = expenditureList;
     }
 
     public Long getId() {
@@ -39,11 +43,19 @@ public class Category {
         this.name = name;
     }
 
-    public List<Movements> getMovementsList() {
-        return movementsList;
+    public List<Income> getIncomeList() {
+        return incomeList;
     }
 
-    public void setMovementsList(List<Movements> movementsList) {
-        this.movementsList = movementsList;
+    public void setIncomeList(List<Income> incomeList) {
+        this.incomeList = incomeList;
+    }
+
+    public List<Expenditure> getExpenditureList() {
+        return expenditureList;
+    }
+
+    public void setExpenditureList(List<Expenditure> expenditureList) {
+        this.expenditureList = expenditureList;
     }
 }

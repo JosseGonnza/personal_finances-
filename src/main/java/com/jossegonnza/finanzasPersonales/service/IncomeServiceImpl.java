@@ -1,6 +1,5 @@
 package com.jossegonnza.finanzasPersonales.service;
 
-import com.jossegonnza.finanzasPersonales.entity.Category;
 import com.jossegonnza.finanzasPersonales.entity.Income;
 import com.jossegonnza.finanzasPersonales.repository.IncomeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class IncomeServiceImpl implements IncomeService{
     }
 
     @Override
-    public List<Category> findAllIncomesByCategory(Long categoryId) {
+    public List<Income> findAllIncomesByCategory(Long categoryId) {
         return incomeRepository.findByCategoryId(categoryId);
     }
 
