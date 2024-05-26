@@ -4,9 +4,7 @@ import com.jossegonnza.finanzasPersonales.entity.Income;
 import com.jossegonnza.finanzasPersonales.service.IncomeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +16,7 @@ public class IncomeController {
     @Autowired
     private IncomeServiceImpl incomeService;
 
-    @GetMapping
+    @GetMapping("/")
     public List<Income> getAllIncomes() {
         return incomeService.findAllIncomes();
     }
@@ -31,6 +29,11 @@ public class IncomeController {
     @GetMapping("/{id}")
     public Optional<Income> getIncomeById(@PathVariable Long id) {
         return incomeService.findIncomeById(id);
+    }
+
+    @PostMapping("/")
+    public void createNewIncome(@RequestBody Income income) {
+        incomeService.createIncome(income);
     }
 
 }

@@ -4,8 +4,7 @@ import com.jossegonnza.finanzasPersonales.entity.Movements;
 import com.jossegonnza.finanzasPersonales.service.MovementsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +20,14 @@ public class MovementsController {
         return movementsService.findAllMovements();
     }
 
+    @PutMapping("/update")
+    public void updateMovement(@RequestBody Long id, Movements movements) {
+        movementsService.updateMovement(id, movements);
+    }
 
+    @DeleteMapping("/delete")
+    public void deleteMovement(@PathVariable Long id) {
+        movementsService.deleteMovement(id);
+    }
 
 }

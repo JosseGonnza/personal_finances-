@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -31,6 +32,11 @@ public class ExpenditureController {
     @GetMapping("/{id}")
     public Optional<Expenditure> getExpenditureById(@PathVariable Long id) {
         return expenditureService.findExpenditureById(id);
+    }
+
+    @PostMapping("/")
+    public void createNewExpenditure(Expenditure expenditure) {
+        expenditureService.createExpenditure(expenditure);
     }
 
 }
