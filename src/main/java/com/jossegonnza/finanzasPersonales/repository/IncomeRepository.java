@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface IncomeRepository extends JpaRepository<Income, Long> {
 
-    List<Category> findByCategoryId(Long categoryId);
+    List<Income> findByCategoryId(Long categoryId);
 
 }
