@@ -15,6 +15,9 @@ public class ExpenditureServiceImpl implements ExpenditureService {
     @Autowired
     private ExpenditureRepository expenditureRepository;
 
+    @Autowired
+    private CategoryServiceImpl categoryService;
+
     @Override
     public List<Expenditure> findAllExpenditures() {
         return expenditureRepository.findAll();

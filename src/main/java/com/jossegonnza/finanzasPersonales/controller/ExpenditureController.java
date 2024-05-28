@@ -1,8 +1,11 @@
 package com.jossegonnza.finanzasPersonales.controller;
 
 import com.jossegonnza.finanzasPersonales.entity.Expenditure;
+import com.jossegonnza.finanzasPersonales.entity.Income;
 import com.jossegonnza.finanzasPersonales.service.ExpenditureServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,9 +34,10 @@ public class ExpenditureController {
         return expenditureService.findExpenditureById(id);
     }
 
-    @PostMapping("/")
-    public Expenditure createNewExpenditure(@RequestBody Expenditure expenditure) {
-        return expenditureService.createExpenditure(expenditure);
+    @PostMapping("/add")
+    public ResponseEntity<Expenditure> createNewExpenditure(@RequestBody Expenditure expenditure) {
+        Expenditure createdExpenditure = expenditureService.createExpenditure(expenditure);
+        return new ResponseEntity<>(createdExpenditure, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete/{id}")
