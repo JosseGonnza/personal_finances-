@@ -13,12 +13,16 @@ public class JDBCMovementRepository {
 
     @Transactional
     public int update(Movements2 movements) {
-        String sql = "UPDATE movements SET type = 'INGRESO', name = 'Test', quantity = 10, category_id = 1 WHERE id = 1;";
+        String sql = "UPDATE movements SET type = ?, name = ?, quantity = ?, category_id = ? WHERE id = ?";
 
-        String typeAsString = movements.getType().name();
-        return jdbcTemplate.update(sql, movements.getType(), movements.getName(),
-                movements.getQuantity(), movements.getCategory_id(), movements.getId());
+        return jdbcTemplate.update(sql,
+                movements.getType().name(),
+                movements.getName(),
+                movements.getQuantity(),
+                movements.getCategory_id(),
+                movements.getId());
     }
+
 
 
 }

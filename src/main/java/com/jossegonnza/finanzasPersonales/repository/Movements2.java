@@ -18,8 +18,6 @@ public class Movements2 {
         this.category_id = category_id;
     }
 
-
-
     public MovementsType getType() {
         return type;
     }
